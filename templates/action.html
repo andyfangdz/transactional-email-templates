@@ -21,24 +21,17 @@
 							<table width="100%" cellpadding="0" cellspacing="0">
 								<tr>
 									<td class="content-block">
-										You're receiving this e-mail because you or someone else has requested a password reset for your account at lintcode.com.
+										{% block content %}
+										{% endblock %}
 									</td>
 								</tr>
-								<tr>
-									<td class="content-block">
-										If you did not request a password reset you can safely ignore this email.
-									</td>
-								</tr>
+								{% if action_url %}
 								<tr>
 									<td class="content-block" itemprop="handler" itemscope itemtype="http://schema.org/HttpActionHandler">
-										<a href="{{ url }}" class="btn-primary" itemprop="url">Reset Your Password</a>
+										<a href="{{ action_url }}" class="btn-primary" itemprop="url">{{ action_text }}</a>
 									</td>
 								</tr>
-								<tr>
-									<td class="content-block">
-										&mdash; LintCode Team
-									</td>
-								</tr>
+								{% endif %}
 							</table>
 						</td>
 					</tr>
@@ -46,7 +39,8 @@
 				<div class="footer">
 					<table width="100%">
 						<tr>
-							<td class="aligncenter content-block">Contact us: info@lintcode.com</td>
+							<td class="aligncenter content-block">请勿直接回复本邮件，如有疑问，请与info@ninechapter.com联系. <br/>
+    <a href="http://{{DOMAIN}}/unsubscribe/?email={{email}}&unsubscribe_code={{unsubscribe_code}}" class="pull-right"><h6>邮件退订</h6></a>m</td>
 						</tr>
 					</table>
 				</div></div>
